@@ -5,64 +5,36 @@ class RpTable extends Component {
 	constructor(props) {
 		super(props);
 		console.dir(props);
+
+		const children = props.children;
+		const headers = children.filter( item => item.type.name === 'RpHeader');
+		const columns = children.filter( item => item.type.name === 'RpColumn');
+
+		console.log(headers);
+
+		this.headers = headers;
+		this.columns = columns;
+		this.data = props.data;
+
 	}
 	render() {
 		return (
 			<table>
 				<thead>
 					<tr>
-						<th>
-							header123
-						</th>
-						<th>
-							header
-						</th>
-						<th>
-							header
-						</th>
-						<th>
-							header
-						</th>
-						<th>
-							header
-						</th>
+						{ this.headers.map(item => 
+							<th>{item.props.children}</th>)
+						}
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							aaaa
-						</td>
-						<td>
-							aaaa
-						</td>
-						<td>
-							aaaa
-						</td>
-						<td>
-							aaaa
-						</td>
-						<td>
-							aaaa
-						</td>
-					</tr>
-					<tr>
-						<td>
-							aaaa
-						</td>
-						<td>
-							aaaa
-						</td>
-						<td>
-							aaaa
-						</td>
-						<td>
-							aaaa
-						</td>
-						<td>
-							aaaatr
-						</td>
-					</tr>
+					{ this.data.map(dataItem => 
+						<tr>
+							{ this.columns.map(item => 
+								<td>{dataItem[item.props.children]}</td>)
+							}
+						</tr>)
+					}
 				</tbody>
 			</table>
 		);

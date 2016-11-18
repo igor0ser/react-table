@@ -4,32 +4,32 @@ import RpHeader from './Rp/RpHeader';
 import RpColumn from './Rp/RpColumn';
 
 const array = [
-	{ name: 'William', surname: '123', type: 'jockey'}
-	{ name: 'Kohn', surname: 'Johnsin', type: 'jockey'}
-	{ name: 'Adam', surname: 'Wills', type: 'trainer'}
-	{ name: 'Steven', surname: 'Jobs', type: 'owner'}
+	{ name: 'William', surname: '123', type: 'jockey'},
+	{ name: 'Kohn', surname: 'Johnsin', type: 'jockey'},
+	{ name: 'Adam', surname: 'Wills', type: 'trainer'},
+	{ name: 'Steven', surname: 'Jobs', type: 'owner'},
 	{ name: 'Will', surname: 'Smyth', type: 'trainer'}
 ];
 
 const SomeTable = () => (
-	<RpTable>
+	<RpTable data={array}>
 		<RpHeader>
-			RpHeader0
+			Name
 		</RpHeader>
 		<RpColumn>
-			RpColumn0
+			name
 		</RpColumn>
 		<RpHeader>
-			RpHeader1
+			Surname
 		</RpHeader>
 		<RpColumn>
-			RpColumn1
+			surname
 		</RpColumn>
 		<RpHeader>
-			RpHeader2
+			Profession
 		</RpHeader>
 		<RpColumn>
-			RpColumn2
+			type
 		</RpColumn>
 	</RpTable>
 );
